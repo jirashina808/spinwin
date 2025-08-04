@@ -91,38 +91,43 @@ export const SpinWheel = () => {
         >
           {prizes.map((prize, index) => {
             const angle = (360 / prizes.length) * index;
+            const nextAngle = (360 / prizes.length) * (index + 1);
+            
             return (
               <div
                 key={prize.id}
                 className="absolute w-full h-full"
                 style={{
-                  transform: `rotate(${angle}deg)`,
-                  clipPath: `polygon(50% 50%, 50% 0%, ${50 + 50 * Math.cos((360 / prizes.length) * Math.PI / 180)}% ${50 - 50 * Math.sin((360 / prizes.length) * Math.PI / 180)}%)`,
+                  clipPath: `polygon(50% 50%, 
+                    ${50 + 50 * Math.sin((angle * Math.PI) / 180)}% ${50 - 50 * Math.cos((angle * Math.PI) / 180)}%, 
+                    ${50 + 50 * Math.sin((nextAngle * Math.PI) / 180)}% ${50 - 50 * Math.cos((nextAngle * Math.PI) / 180)}%)`,
                   backgroundColor: prize.color,
                 }}
               >
                 <div 
-                  className="absolute w-full text-white font-bold flex flex-col items-center justify-start pt-8"
+                  className="absolute inset-0 flex items-center justify-center"
                   style={{ 
-                    transform: `rotate(${-angle + (360 / prizes.length) / 2}deg)`,
-                    transformOrigin: 'center bottom'
+                    transform: `rotate(${angle + (360 / prizes.length) / 2}deg)`,
+                    transformOrigin: 'center center'
                   }}
                 >
-                  <span className="text-2xl mb-1 filter drop-shadow-lg">{prize.icon}</span>
-                  {prize.text.includes('%') ? (
-                    <div className="text-center">
-                      <div className="text-3xl font-black filter drop-shadow-lg tracking-tight leading-none text-white">
-                        {prize.text.split(' ')[0]}
+                  <div className="text-center text-white font-bold transform -translate-y-16">
+                    <div className="text-2xl mb-1 filter drop-shadow-lg">{prize.icon}</div>
+                    {prize.text.includes('%') ? (
+                      <div>
+                        <div className="text-2xl font-black filter drop-shadow-lg leading-none">
+                          {prize.text.split(' ')[0]}
+                        </div>
+                        <div className="text-xs font-bold filter drop-shadow-lg">
+                          {prize.text.split(' ')[1]}
+                        </div>
                       </div>
-                      <div className="text-sm font-bold filter drop-shadow-lg tracking-wide text-white">
-                        {prize.text.split(' ')[1]}
+                    ) : (
+                      <div className="text-sm font-bold filter drop-shadow-lg max-w-20 mx-auto leading-tight">
+                        {prize.text}
                       </div>
-                    </div>
-                  ) : (
-                    <div className="text-sm font-bold filter drop-shadow-lg text-center leading-tight text-white px-2">
-                      {prize.text}
-                    </div>
-                  )}
+                    )}
+                  </div>
                 </div>
               </div>
             );
