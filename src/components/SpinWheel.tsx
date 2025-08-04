@@ -94,7 +94,7 @@ export const SpinWheel = () => {
             return (
               <div
                 key={prize.id}
-                className="absolute w-full h-full flex items-center justify-center text-white font-bold text-sm"
+                className="absolute w-full h-full"
                 style={{
                   transform: `rotate(${angle}deg)`,
                   clipPath: `polygon(50% 50%, 50% 0%, ${50 + 50 * Math.cos((360 / prizes.length) * Math.PI / 180)}% ${50 - 50 * Math.sin((360 / prizes.length) * Math.PI / 180)}%)`,
@@ -102,25 +102,24 @@ export const SpinWheel = () => {
                 }}
               >
                 <div 
-                  className="absolute transform flex flex-col items-center justify-center gap-0.5"
+                  className="absolute w-full text-white font-bold flex flex-col items-center justify-start pt-8"
                   style={{ 
-                    top: '15%',
-                    left: '50%',
-                    transform: `translateX(-50%) rotate(${90 - (360 / prizes.length) / 2}deg)`
+                    transform: `rotate(${-angle + (360 / prizes.length) / 2}deg)`,
+                    transformOrigin: 'center bottom'
                   }}
                 >
-                  <span className="text-2xl drop-shadow-lg">{prize.icon}</span>
+                  <span className="text-2xl mb-1 filter drop-shadow-lg">{prize.icon}</span>
                   {prize.text.includes('%') ? (
                     <div className="text-center">
-                      <div className="text-2xl font-black drop-shadow-lg tracking-tight leading-none">
+                      <div className="text-3xl font-black filter drop-shadow-lg tracking-tight leading-none text-white">
                         {prize.text.split(' ')[0]}
                       </div>
-                      <div className="text-xs font-bold drop-shadow-lg tracking-wide">
+                      <div className="text-sm font-bold filter drop-shadow-lg tracking-wide text-white">
                         {prize.text.split(' ')[1]}
                       </div>
                     </div>
                   ) : (
-                    <div className="text-xs font-bold drop-shadow-lg text-center leading-tight max-w-16">
+                    <div className="text-sm font-bold filter drop-shadow-lg text-center leading-tight text-white px-2">
                       {prize.text}
                     </div>
                   )}
