@@ -114,8 +114,9 @@ export const SpinWheel = () => {
                 >
                   <div className="text-center text-white font-bold transform -translate-y-16">
                     {prize.text.startsWith('$') ? (
-                      <div className="text-2xl font-black filter drop-shadow-lg leading-none">
-                        {prize.text}
+                      <div className="flex flex-col items-center leading-none">
+                        <div className="text-lg font-black filter drop-shadow-lg">$</div>
+                        <div className="text-xl font-black filter drop-shadow-lg">{prize.text.slice(1)}</div>
                       </div>
                     ) : (
                       <div className="text-sm font-bold filter drop-shadow-lg max-w-20 mx-auto leading-tight">
