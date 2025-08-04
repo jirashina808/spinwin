@@ -112,7 +112,7 @@ export const SpinWheel = () => {
                     transformOrigin: 'center center'
                   }}
                 >
-                  <div className="text-center text-white font-bold transform -translate-y-16">
+                  <div className="text-center text-white font-bold transform -translate-y-24">
                     {prize.text.startsWith('$') ? (
                       <div className="flex flex-col items-center leading-none">
                         <div className="text-lg font-black filter drop-shadow-lg">$</div>
