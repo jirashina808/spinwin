@@ -15,13 +15,13 @@ interface Prize {
 }
 
 const prizes: Prize[] = [
-  { id: 1, text: "20% OFF", probability: 15, color: "hsl(280 100% 60%)", icon: "🎉" },
-  { id: 2, text: "FREE ITEM", probability: 5, color: "hsl(145 100% 45%)", icon: "🎁" },
-  { id: 3, text: "25% OFF", probability: 10, color: "hsl(30 100% 60%)", icon: "💎" },
-  { id: 4, text: "15% OFF", probability: 20, color: "hsl(200 100% 60%)", icon: "✨" },
-  { id: 5, text: "FREE SHIPPING", probability: 20, color: "hsl(320 100% 70%)", icon: "🚚" },
-  { id: 6, text: "30% OFF", probability: 8, color: "hsl(45 100% 65%)", icon: "🔥" },
-  { id: 7, text: "10% OFF", probability: 15, color: "hsl(350 100% 65%)", icon: "⭐" },
+  { id: 1, text: "$500", probability: 5, color: "hsl(280 100% 60%)", icon: "🎉" },
+  { id: 2, text: "$1000", probability: 3, color: "hsl(145 100% 45%)", icon: "🎁" },
+  { id: 3, text: "$200", probability: 10, color: "hsl(30 100% 60%)", icon: "💎" },
+  { id: 4, text: "$100", probability: 20, color: "hsl(200 100% 60%)", icon: "✨" },
+  { id: 5, text: "$50", probability: 25, color: "hsl(320 100% 70%)", icon: "🚚" },
+  { id: 6, text: "$300", probability: 8, color: "hsl(45 100% 65%)", icon: "🔥" },
+  { id: 7, text: "$25", probability: 22, color: "hsl(350 100% 65%)", icon: "⭐" },
   { id: 8, text: "TRY AGAIN", probability: 7, color: "hsl(0 60% 60%)", icon: "🔄" },
 ];
 
@@ -113,14 +113,9 @@ export const SpinWheel = () => {
                   }}
                 >
                   <div className="text-center text-white font-bold transform -translate-y-16">
-                    {prize.text.includes('%') ? (
-                      <div>
-                        <div className="text-2xl font-black filter drop-shadow-lg leading-none">
-                          {prize.text.split(' ')[0]}
-                        </div>
-                        <div className="text-sm font-bold filter drop-shadow-lg mt-1">
-                          {prize.text.split(' ')[1]}
-                        </div>
+                    {prize.text.startsWith('$') ? (
+                      <div className="text-2xl font-black filter drop-shadow-lg leading-none">
+                        {prize.text}
                       </div>
                     ) : (
                       <div className="text-sm font-bold filter drop-shadow-lg max-w-20 mx-auto leading-tight">
