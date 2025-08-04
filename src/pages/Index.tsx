@@ -58,11 +58,12 @@ const Index = () => {
           <h3 className="text-2xl font-bold text-foreground mb-6">Possible Prizes</h3>
           <div className="flex flex-wrap justify-center gap-3">
             <Badge variant="secondary" className="text-lg px-4 py-2">🎁 Free Item</Badge>
-            <Badge variant="secondary" className="text-lg px-4 py-2">💫 20% OFF</Badge>
+            <Badge variant="secondary" className="text-lg px-4 py-2">🔥 30% OFF</Badge>
+            <Badge variant="secondary" className="text-lg px-4 py-2">💎 25% OFF</Badge>
+            <Badge variant="secondary" className="text-lg px-4 py-2">🎉 20% OFF</Badge>
             <Badge variant="secondary" className="text-lg px-4 py-2">✨ 15% OFF</Badge>
             <Badge variant="secondary" className="text-lg px-4 py-2">⭐ 10% OFF</Badge>
             <Badge variant="secondary" className="text-lg px-4 py-2">🚚 Free Shipping</Badge>
-            <Badge variant="secondary" className="text-lg px-4 py-2">🌟 5% OFF</Badge>
           </div>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
             All prizes are valid for today's purchase only. Present your winning screen to any staff member to redeem your prize.

@@ -16,11 +16,12 @@ interface Prize {
 const prizes: Prize[] = [
   { id: 1, text: "20% OFF", probability: 15, color: "hsl(280 100% 60%)", icon: "🎉" },
   { id: 2, text: "FREE ITEM", probability: 5, color: "hsl(145 100% 45%)", icon: "🎁" },
-  { id: 3, text: "15% OFF", probability: 20, color: "hsl(30 100% 60%)", icon: "💫" },
-  { id: 4, text: "10% OFF", probability: 25, color: "hsl(200 100% 60%)", icon: "✨" },
+  { id: 3, text: "25% OFF", probability: 10, color: "hsl(30 100% 60%)", icon: "💎" },
+  { id: 4, text: "15% OFF", probability: 20, color: "hsl(200 100% 60%)", icon: "✨" },
   { id: 5, text: "FREE SHIPPING", probability: 20, color: "hsl(320 100% 70%)", icon: "🚚" },
-  { id: 6, text: "5% OFF", probability: 10, color: "hsl(45 100% 70%)", icon: "⭐" },
-  { id: 7, text: "TRY AGAIN", probability: 5, color: "hsl(0 60% 60%)", icon: "🔄" },
+  { id: 6, text: "30% OFF", probability: 8, color: "hsl(45 100% 65%)", icon: "🔥" },
+  { id: 7, text: "10% OFF", probability: 15, color: "hsl(350 100% 65%)", icon: "⭐" },
+  { id: 8, text: "TRY AGAIN", probability: 7, color: "hsl(0 60% 60%)", icon: "🔄" },
 ];
 
 export const SpinWheel = () => {
@@ -101,15 +102,28 @@ export const SpinWheel = () => {
                 }}
               >
                 <div 
-                  className="absolute transform -rotate-90 flex flex-col items-center gap-1"
+                  className="absolute transform flex flex-col items-center justify-center gap-0.5"
                   style={{ 
-                    top: '20%',
+                    top: '15%',
                     left: '50%',
                     transform: `translateX(-50%) rotate(${90 - (360 / prizes.length) / 2}deg)`
                   }}
                 >
-                  <span className="text-lg">{prize.icon}</span>
-                  <span className="text-xs whitespace-nowrap">{prize.text}</span>
+                  <span className="text-2xl drop-shadow-lg">{prize.icon}</span>
+                  {prize.text.includes('%') ? (
+                    <div className="text-center">
+                      <div className="text-2xl font-black drop-shadow-lg tracking-tight leading-none">
+                        {prize.text.split(' ')[0]}
+                      </div>
+                      <div className="text-xs font-bold drop-shadow-lg tracking-wide">
+                        {prize.text.split(' ')[1]}
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="text-xs font-bold drop-shadow-lg text-center leading-tight max-w-16">
+                      {prize.text}
+                    </div>
+                  )}
                 </div>
               </div>
             );
