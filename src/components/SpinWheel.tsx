@@ -112,18 +112,17 @@ export const SpinWheel = () => {
                   }}
                 >
                   <div className="text-center text-white font-bold transform -translate-y-16">
-                    <div className="text-2xl mb-1 filter drop-shadow-lg">{prize.icon}</div>
                     {prize.text.includes('%') ? (
                       <div>
-                        <div className="text-2xl font-black filter drop-shadow-lg leading-none">
+                        <div className="text-4xl font-black filter drop-shadow-lg leading-none">
                           {prize.text.split(' ')[0]}
                         </div>
-                        <div className="text-xs font-bold filter drop-shadow-lg">
+                        <div className="text-lg font-bold filter drop-shadow-lg mt-1">
                           {prize.text.split(' ')[1]}
                         </div>
                       </div>
                     ) : (
-                      <div className="text-sm font-bold filter drop-shadow-lg max-w-20 mx-auto leading-tight">
+                      <div className="text-lg font-bold filter drop-shadow-lg max-w-20 mx-auto leading-tight">
                         {prize.text}
                       </div>
                     )}
