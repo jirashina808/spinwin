@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { SpinWheel } from "@/components/SpinWheel";
+import { BalloonPop } from "@/components/BalloonPop";
 import { EmailCapture } from "@/components/EmailCapture";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -21,12 +21,12 @@ const Index = () => {
         <div className="flex items-center justify-center gap-3 mb-4">
           <Store className="w-10 h-10 text-primary" />
           <h1 className="text-5xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-            Lucky Spin
+            Balloon Pop
           </h1>
           <Sparkles className="w-10 h-10 text-primary" />
         </div>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto px-4">
-          Welcome to our store's lucky wheel! Spin to win amazing discounts and prizes.
+          Welcome to our store's balloon pop game! Pop a balloon to win amazing discounts and prizes.
         </p>
       </div>
 
@@ -42,12 +42,12 @@ const Index = () => {
                 Welcome back, {customerEmail.split('@')[0]}! 🎉
               </h2>
               <p className="text-muted-foreground">
-                You're eligible for one free spin. Good luck!
+                You're eligible for one free balloon pop. Good luck!
               </p>
             </Card>
 
-            {/* Spin Wheel */}
-            <SpinWheel />
+            {/* Balloon Pop Game */}
+            <BalloonPop />
           </div>
         )}
       </div>
